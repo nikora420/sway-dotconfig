@@ -11,7 +11,7 @@ echo -e "${GREEN}Update Fonts ${ENDCOLOR}"
 sudo fc-cache -v | clear
 echo -e "${RED} Done with setting up fonts${ENDCOLOR}"
 
-# Themeing
+# Download Themes
 echo -e "${GREEN} Downloading tela-circle-icon-theme-dracula ${ENDCOLOR}"
 sudo pacman -S tela-circle-icon-theme-dracula -y | clear
 echo -e "${GREEN} Downloading AtomOneDarkTheme from Github ${ENDCOLOR}"
@@ -19,6 +19,6 @@ git clone https://github.com/UnnatShaneshwar/AtomOneDarkTheme.git | clear
 echo -e "${GREEN} Adding to themes folder ${ENDCOLOR}"
 sudo cp -r AtomOneDarkTheme /usr/share/themes
 
-echo -e "${RED} Done :3${ENDCOLOR}"
+echo -e "${RED} Done Pls Reboot!!!:3${ENDCOLOR}"
 
 done
