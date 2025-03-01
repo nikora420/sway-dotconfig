@@ -8,7 +8,7 @@ sudo pacman -S ttf-roboto-mono-nerd ttf-roboto-mono -y
 echo -e "${GREEN}Downloading Font Awesome ${ENDCOLOR}"
 sudo pacman -S ttf-font-awesome -y
 echo -e "${GREEN}Update Fonts ${ENDCOLOR}"
-sudo fc-cache -v
+sudo fc-cache -v | clear
 echo -e "${RED} Done with setting up fonts${ENDCOLOR}"
 
 # Themeing
