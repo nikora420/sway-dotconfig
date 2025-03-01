@@ -2,7 +2,7 @@
 
 # Download Fonts
 echo -e "${GREEN}Downloading Cascadia Code ${ENDCOLOR}"
-sudo pacman -S ttf-cascadia-code -y | clear
+sudo pacman -S ttf-cascadia-code-nerd -y | clear
 echo -e "${GREEN}Downloading Patched font Roboto Mono from nerd fonts library ${ENDCOLOR}"
 sudo pacman -S ttf-roboto-mono-nerd ttf-roboto-mono -y | clear
 echo -e "${GREEN}Downloading Font Awesome ${ENDCOLOR}"
