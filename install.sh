@@ -1,22 +1,32 @@
 #!/bin/sh
 
+# Define color variables
+GREEN="\033[0;32m"
+RED="\033[0;31m"
+ENDCOLOR="\033[0m"
+
+# Function to install a package and print a message
+install_package() {
+    echo -e "${GREEN}Downloading $1 ${ENDCOLOR}"
+    sudo pacman -S --noconfirm $2
+}
+
 # Download Fonts
-echo -e "${GREEN}Downloading Cascadia Code ${ENDCOLOR}"
-sudo pacman -S --noconfirm ttf-cascadia-code-nerd
-echo -e "${GREEN}Downloading Patched font Roboto Mono from nerd fonts library ${ENDCOLOR}"
-sudo pacman -S --noconfirm ttf-roboto-mono-nerd ttf-roboto-mono
-echo -e "${GREEN}Downloading Font Awesome ${ENDCOLOR}"
-sudo pacman -S --noconfirm ttf-font-awesome
-echo -e "${GREEN}Update Fonts ${ENDCOLOR}"
+install_package "Cascadia Code" "ttf-cascadia-code-nerd"
+install_package "Patched font Roboto Mono from nerd fonts library" "ttf-roboto-mono-nerd ttf-roboto-mono"
+install_package "Font Awesome" "ttf-font-awesome"
+
+echo -e "${GREEN}Updating Fonts ${ENDCOLOR}"
 sudo fc-cache -v
-echo -e "${RED} Done with setting up fonts${ENDCOLOR}"
+echo -e "${RED}Done with setting up fonts${ENDCOLOR}"
 
 # Download Themes
-echo -e "${GREEN} Downloading tela-circle-icon-theme-dracula ${ENDCOLOR}"
-sudo pacman -S --noconfirm tela-circle-icon-theme-dracula
-echo -e "${GREEN} Downloading AtomOneDarkTheme from Github ${ENDCOLOR}"
+install_package "tela-circle-icon-theme-dracula" "tela-circle-icon-theme-dracula"
+
+echo -e "${GREEN}Downloading AtomOneDarkTheme from Github ${ENDCOLOR}"
 git clone https://github.com/UnnatShaneshwar/AtomOneDarkTheme.git
-echo -e "${GREEN} Adding to themes folder ${ENDCOLOR}"
+
+echo -e "${GREEN}Adding to themes folder ${ENDCOLOR}"
 sudo cp -r AtomOneDarkTheme /usr/share/themes
 
-echo -e "${RED} Done Pls Reboot!!!:3${ENDCOLOR}"
+echo -e "${RED}Done. Please Reboot! :3${ENDCOLOR}"
