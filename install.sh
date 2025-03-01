@@ -20,14 +20,6 @@ sudo cp -r AtomOneDarkTheme /usr/share/themes
 
 echo -e "${RED} Done with setting up fonts${ENDCOLOR}"
 
-# Add themes to the config
-echo '### GTK Themes
-exec {
-    gsettings set org.gnome.desktop.interface gtk-theme 'AtomOneDarkTheme-main'
-    gsettings set org.gnome.desktop.interface icon-theme 'Tela-circle-dracula-dark'
-    gsettings set org.gnome.desktop.interface font-name 'Roboto Mono 8'
-}' | sudo tee .config/sway/config 
-
 echo -e "${RED} Done :3${ENDCOLOR}"
 
 done
