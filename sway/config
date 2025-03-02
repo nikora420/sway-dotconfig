@@ -1,4 +1,3 @@
-
 # Default config for sway
 #
 # Copy this to ~/.config/sway/config and edit it to your liking.
@@ -22,7 +21,7 @@ set $menu fuzzel --icon-theme=Tela-circle-dracula-dark --font=RobotoMono Nerd Fo
 ### Output configuration
 
 # Wallpaper
-output * bg /home/nix/Pictures/crt.png fill
+#output * bg /home/nix/Pictures/crt.png fill
 
 # Display
 output eDP-2 {
@@ -150,8 +149,8 @@ input type:touchpad {
     bindsym $mod+v splitv
 
     # Switch the current container between different layout styles
-    bindsym $mod+s layout stacking
-    bindsym $mod+w layout tabbed
+    #bindsym $mod+s layout stacking
+    #bindsym $mod+w layout tabbed
     bindsym $mod+e layout toggle split
 
     # Make the current focus fullscreen
@@ -225,20 +224,37 @@ exec waybar
 for_window [app_id="nemo"] floating enable
 for_window [app_id="org.pulseaudio.pavucontrol"] floating enable
 
+### More reasonable floating windows
+for_window [window_role = "pop-up"] floating enable
+for_window [window_role = "bubble"] floating enable
+for_window [window_role = "dialog"] floating enable
+for_window [window_type = "dialog"] floating enable
+for_window [window_role = "task_dialog"] floating enable
+for_window [window_type = "menu"] floating enable
+for_window [app_id = "floating"] floating enable
+for_window [app_id = "floating_update"] floating enable, resize set width 1000px height 600px
+for_window [class = "(?i)pinentry"] floating enable
+for_window [title = "Administrator privileges required"] floating enable
+for_window [title = "Open File"] floating enable
+for_window [title = "wants to open"] floating enable
+
 ### autotiling
 exec_always autotiling
 
 ### Gaps
-gaps inner 5
-gaps outer 5
+gaps inner 8
+gaps outer 6
 smart_gaps on
 
 ### GTK
 exec {
-    gsettings set org.gnome.desktop.interface gtk-theme 'AtomOneDarkTheme-main'
+    gsettings set org.gnome.desktop.interface gtk-theme 'AtomOneDarkTheme'
     gsettings set org.gnome.desktop.interface icon-theme 'Tela-circle-dracula-dark'
     gsettings set org.gnome.desktop.interface font-name 'Roboto Mono 8'
 }
+
+# Enables inhibit_idle when playing audio
+exec sway-audio-idle-inhibit
 
 # Auth with polkit-gnome:
 exec --no-startup-id /usr/bin/lxqt-policykit-agent
