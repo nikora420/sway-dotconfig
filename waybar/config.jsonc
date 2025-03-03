@@ -4,7 +4,7 @@
     "height": 24,
 
 
-    "modules-left": ["sway/workspaces", "custom/scratch", "sway/mode"],
+    "modules-left": ["sway/workspaces", "custom/scratch", "sway/mode", "custom/audio_idle_inhibitor"],
     "modules-center": [],
     "modules-right": ["network", "temperature", "backlight", "pulseaudio", "battery", "tray", "clock"],
 
@@ -84,6 +84,18 @@
     	"interval": 60
 },
 
+	"custom/audio_idle_inhibitor": {
+		"format": "{icon}",
+		"exec": "sway-audio-idle-inhibit --dry-print-both-waybar",
+		"exec-if": "which sway-audio-idle-inhibit",
+		"return-type": "json",
+		"format-icons": {
+			"output": "  IDLE INHIBITED",
+			"input": " ",
+			"output-input": "   ",
+			"none": ""
+		}
+	},
 
     "pulseaudio": {
         "format": "{icon}  {volume}%  ",
