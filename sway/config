@@ -21,7 +21,7 @@ set $menu fuzzel --icon-theme=Tela-circle-dracula-dark --font=RobotoMono Nerd Fo
 ### Output configuration
 
 # Wallpaper
-#output * bg /home/nix/Pictures/crt.png fill
+output * bg /home/nix/Pictures/od_current.png fill
 
 # Display
 output eDP-2 {
@@ -87,6 +87,8 @@ input type:touchpad {
     # Launch the browser
     bindsym $mod+o exec brave
 
+    # Launch the browser
+    bindsym $mod+z exec zeditor
 
 #
 # Moving around:
@@ -235,8 +237,7 @@ for_window [app_id = "floating"] floating enable
 for_window [app_id = "floating_update"] floating enable, resize set width 1000px height 600px
 for_window [class = "(?i)pinentry"] floating enable
 for_window [title = "Administrator privileges required"] floating enable
-for_window [title = "Open File"] floating enable
-for_window [title = "wants to open"] floating enable
+for_window [app_id = "xdg-desktop-portal-gtk"] floating enable
 
 ### autotiling
 exec_always autotiling
@@ -257,6 +258,6 @@ exec {
 exec sway-audio-idle-inhibit
 
 # Auth with polkit-gnome:
-exec --no-startup-id /usr/bin/lxqt-policykit-agent
+exec --no-startup-id /usr/lib/mate-polkit/polkit-mate-authentication-agent-1
 
 include /etc/sway/config.d/*
