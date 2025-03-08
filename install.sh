@@ -27,6 +27,5 @@ echo -e "${GREEN}Downloading AtomOneDarkTheme from Github ${ENDCOLOR}"
 git clone https://github.com/UnnatShaneshwar/AtomOneDarkTheme.git
 
 echo -e "${GREEN}Adding to themes folder ${ENDCOLOR}"
-sudo cp -r AtomOneDarkTheme /usr/share/themes
-
+sudo mv -r AtomOneDarkTheme /usr/share/themes
 echo -e "${RED}Done. Please Reboot! :3${ENDCOLOR}"
