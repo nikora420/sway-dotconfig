@@ -26,6 +26,7 @@ output * bg /home/nix/Pictures/od_current.png fill
 # Display
 output eDP-2 {
 mode 1920x1200@165.015hz
+color_profile icc /home/nix/.colors/icc/A16_01.icm
 scale 1.25
 adaptive_sync on
 }
@@ -34,10 +35,10 @@ adaptive_sync on
 #
 # Example configuration:
 #
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-#          before-sleep 'swaylock -f -c 000000'
+ exec swayidle -w \
+          timeout 300 'swaylock -f -c 000000' \
+          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+          before-sleep 'swaylock -f -c 000000'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -259,5 +260,14 @@ exec sway-audio-idle-inhibit
 
 # Auth with polkit-gnome:
 exec --no-startup-id /usr/lib/mate-polkit/polkit-mate-authentication-agent-1
+
+# Screenshare Fix
+exec --no-startup-id dbus-update-activation-environment --all
+
+# clipman
+exec wl-paste -t text --watch 
+
+# Nightmode
+exec gammastep -l 32.715736 -117.161087
 
 include /etc/sway/config.d/*
